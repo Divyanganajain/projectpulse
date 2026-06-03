@@ -5,6 +5,7 @@ const connectDB = require('./config/db')
 const authRoutes = require('./routes/authRoutes')
 const teamRoutes = require('./routes/teamRoutes')
 const projectRoutes = require('./routes/projectRoutes')
+const taskRoutes = require('./routes/taskRoutes')
 
 dotenv.config()
 connectDB()
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/teams', teamRoutes)
 app.use('/api/projects', projectRoutes)
+app.use('/api/tasks', taskRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'ProjectPulse API is running 🚀', status: 'success' })
